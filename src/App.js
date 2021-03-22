@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import './App.css';
+import Looper from "./components/Looper";
+import Container from "./components/Container";
+import Nav from "./components/Nav";
+import {BrowserRouter as Router, Switch, Route} from "react-router-dom";
+import React, {Component} from 'react';
+class App extends Component {
+    render () {
+    return (
+        <Router>
+            <div className="App">
+                <Nav/>
+                <Switch>
+
+                    <Route exact path={"/"} component={Container}/>
+                    <Route path={"/looper/:color"} component={Looper}/>
+                </Switch>
+
+            </div>
+
+        </Router>
+
+    );
+}}
 
 export default App;

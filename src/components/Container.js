@@ -30,7 +30,7 @@ function Container() {
             setOddNumberValue(oddNumberValue +1);
         }
         if (count % 5 === 0){
-            let randomColor = 52345 * Math.floor(Math.random()*10);
+            let randomColor = 100 * Math.floor(Math.random()*10);
             let randomColorString = "#" + randomColor;
             setColor(randomColorString);
         }

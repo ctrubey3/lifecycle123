@@ -44,7 +44,7 @@ function Container() {
 
         setVisual(newArray);
 
-    },[oddNumberValue, data,count]);
+    },[ data,count]);
 
 
     return (
@@ -54,7 +54,7 @@ function Container() {
             <button onClick={()=>setCount(0)}>Clear</button>
             <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
             <p> {count}</p>
-            {[...Array(oddNumberValue)].map((_,) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
+            {[...Array(count)].map((_,) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
             )}
 
         </div>

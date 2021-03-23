@@ -19,7 +19,7 @@ function Container() {
         },
     ]);
 
-    const [visual, setVisual]= React.useState(data);
+    const  [visual,setVisual]= React.useState(data);
     const [count,setCount]=React.useState(0);
     const [oddNumberValue, setOddNumberValue]= React.useState(0);
 
@@ -55,9 +55,9 @@ function Container() {
             <button onClick={()=>setCount(count +1)}>Add</button>
             <button onClick={()=>setCount(0)}>Clear</button>
             <p> {count}</p>
-            <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}></div>
+            <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
 
-            {[...Array(oddNumberValue)].map((_, i) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}></div>
+            {[...Array(oddNumberValue)].map((_, i) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
             )}
 
         </div>

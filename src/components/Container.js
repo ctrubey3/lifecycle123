@@ -1,32 +1,24 @@
 import React from "react";
 
 function Container() {
-    const [color, setColor]=React.useState("green");
+    const [color, setColor] = React.useState("green"), [data] = React.useState([
+            {
+                backgroundColor: color,
+                height: "100px",
+                width: "100px",
+                margin: "10px",
+            },
+            {
+                backgroundColor: 'blue',
+                height: "100px",
+                width: "100px",
+                margin: "10px",
+            },
+        ]), [, setVisual] = React.useState(data), [count, setCount] = React.useState(0), [oddNumberValue, setOddNumberValue] = React.useState(0),
+        i = () => {
+            setVisual(count => count + 1);
+        };
 
-
-    const [data] = React.useState([
-        {
-            backgroundColor: color,
-            height: "100px",
-            width: "100px",
-            margin: "10px",
-        },
-        {
-            backgroundColor: 'blue',
-            height: "100px",
-            width: "100px",
-            margin: "10px",
-        },
-    ]);
-
-    const  [,setVisual]= React.useState(data);
-    const [count,setCount]=React.useState(0);
-    const [oddNumberValue, setOddNumberValue]= React.useState(0);
-
-
-    const i = () => {
-        setVisual(count => count + 1);
-    };
 
     React.useEffect(()=>{
         let newArray;
@@ -50,6 +42,7 @@ function Container() {
 
     },[data,count]);
 
+
     return (
         <div className="container">
             <button onClick={()=>setCount(count +1)}>Add</button>
@@ -57,10 +50,8 @@ function Container() {
             <p> {count}</p>
             <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
 
-            {[...Array(oddNumberValue)].map((_, i) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
-            )}
-
-        </div>
+            {[...Array(oddNumberValue)].map((_, ) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}>'</div>
+            )}</div>
 
     )
 }

@@ -44,7 +44,7 @@ function Container() {
 
         setVisual(newArray);
 
-    },[setOddNumberValue, data,count]);
+    },[oddNumberValue, data,count]);
 
 
     return (

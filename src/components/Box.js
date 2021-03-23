@@ -1,9 +1,10 @@
 import React from 'react';
+
 function Box(){
 
 
     let box = {
-        backgroundColor: 'blue',
+        backgroundColor: 'green',
         height: "100px",
         width: "100px",
         margin: "10px",

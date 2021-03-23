@@ -1,41 +1,71 @@
-import React from 'react';
-import Box from "./Box";
+import React from "react";
 
 function Container() {
-    const [count, setCount] = React.useState(1);
-    const [color, setColor]=React.useState("#ff0051");
+    const [color, setColor]=React.useState("green");
 
 
+    const [data] = React.useState([
+        {
+            backgroundColor: color,
+            height: "100px",
+            width: "100px",
+            margin: "10px",
+        },
+        {
+            backgroundColor: 'blue',
+            height: "100px",
+            width: "100px",
+            margin: "10px",
+        },
+    ]);
 
-    const numbers = [1];
-    const plus1 = numbers.map((number) => number +1);
-    console.log(plus1);
+    const [visual, setVisual]= React.useState(data);
+    const [count,setCount]=React.useState(0);
+    const [oddNumberValue, setOddNumberValue]= React.useState(0);
+
+
+    const i = () => {
+        setVisual(count => count + 1);
+    };
 
     React.useEffect(()=>{
-
-
-
-        if(count>=5){
-            setColor("black");
+        let newArray;
+        if(count % 2 !== 0){
+            setOddNumberValue(oddNumberValue +1);
         }
-        if(count>=10){
-            setColor("blue");
+        if (count % 5 === 0){
+            let randomColor = 52345 * Math.floor(Math.random()*10);
+            let randomColorString = "#" + randomColor;
+            setColor(randomColorString);
         }
-    },[count]);
 
+        if(count===1){
+            setVisual(i+1);
+        }
+        else{
+            newArray=data;
+        }
+
+        setVisual(newArray);
+
+    },[data,count]);
 
     return (
         <div className="container">
+            <button onClick={()=>setCount(count +1)}>Add</button>
+            <button onClick={()=>setCount(0)}>Clear</button>
+            <p> {count}</p>
+            <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}></div>
 
-            <button onClick={()=>setCount(0)}>Reset</button>
-            <button onClick={() => setCount(count + 1)}>Add Box</button>
-            <div style={{backgroundColor:color, height:"100px", width:"100px"}}>add box</div>
-            {[...Array(count)].map((_, i) => <Box key={i} />) }
-
-
+            {[...Array(oddNumberValue)].map((_, i) => <div style={{backgroundColor:color, height:"100px", width:"100px", margin:"10px"}}></div>
+            )}
 
         </div>
+
     )
 }
 
 export default Container;
+
+
+

@@ -19,7 +19,7 @@ function Container() {
         },
     ]);
 
-    const  [visual,setVisual]= React.useState(data);
+    const  [,setVisual]= React.useState(data);
     const [count,setCount]=React.useState(0);
     const [oddNumberValue, setOddNumberValue]= React.useState(0);
 
